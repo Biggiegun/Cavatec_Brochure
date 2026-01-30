@@ -20,3 +20,4 @@ vars.forEach(v => {
 });
 
 fs.writeFileSync('./config.js', template);
+console.log("✅ Archivo config.js generado con variables de entorno.");
