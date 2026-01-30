@@ -1,0 +1,12 @@
+{
+  "name": "brochure-cavatec",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build-config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

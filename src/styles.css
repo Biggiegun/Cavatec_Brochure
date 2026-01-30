@@ -1,0 +1,205 @@
+/* ==================================== */
+/* 1. VARIABLES Y BASE                  */
+/* ==================================== */
+
+:root {
+    --menu-button-color: #008000;
+    --color-header: #0F4D0F;
+    --color-active: #1a1a1a; 
+    --color-secondary: #333;
+    --color-background: #f4f4f9; 
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-secondary);
+    display: block; 
+}
+
+/* ==================================== */
+/* 2. NAVEGACIÓN (Layout Centrado)      */
+/* ==================================== */
+
+.menu {
+    background-color: var(--color-secondary);
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribuye: Izquierda, Centro, Derecha */
+    min-height: 60px;
+}
+
+/* Contenedor del nombre CAVATEC */
+.logo-text {
+    flex: 1; /* Ocupa espacio a la izquierda */
+    display: flex;
+    justify-content: flex-start;
+}
+
+.logo-text h3 {
+    margin: 0;
+    color: white;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+/* Contenedor de botones (Centro) */
+.nav-buttons {
+    flex: 0; /* No crece, mantiene su ancho justo */
+    display: flex;
+    justify-content: center;
+}
+
+/* Espaciador para equilibrar el centrado */
+.spacer {
+    flex: 1; /* Ocupa el mismo espacio que .logo-text a la derecha */
+}
+
+.menu button, #contact-btn {
+    background-color: var(--menu-button-color);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    margin: 0.3rem;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.menu button:hover, #contact-btn:hover {
+    background-color: var(--color-header);
+}
+
+.menu button.active {
+    background-color: var(--color-active);
+    border: 1px solid white;
+}
+
+/* ==================================== */
+/* 3. TÍTULOS <h2>                      */
+/* ==================================== */
+
+h2 {
+    color: var(--color-header);
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.5rem; 
+    margin-bottom: 1rem;
+    font-size: 1.8em; 
+}
+
+/* ==================================== */
+/* 4. LOGO (Imagen con Transición)      */
+/* ==================================== */
+
+.cavatec_logo_container {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.cavatec_logo {
+    width: 35%;
+    max-width: 12%; 
+    height: auto;
+    border-radius: 0.3rem;
+    transition: transform 0.5s ease-in-out;
+}
+
+.cavatec_logo:hover {
+    transform: translateY(1.25rem);
+}
+
+/* ==================================== */
+/* 5. CONTENIDO Y ALTERNANCIA           */
+/* ==================================== */
+
+.contenido-brochure {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.pagina {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==================================== */
+/* 6. RANGOS DE PANTALLA                */
+/* ==================================== */
+
+/* MÓVIL */
+@media screen and (max-width: 767px) {
+    body, .contenido-brochure {
+        min-height: auto; 
+    }
+    
+    .menu {
+        padding: 0.5rem 0.8rem;
+    }
+    
+    .spacer { display: none; } /* En móvil simplificamos el layout */
+    
+    .logo-text h3 { font-size: 1rem; }
+
+    h2 { font-size: 1.5em; }
+    
+    footer { margin-top: 1.5rem; }
+}
+
+/* TABLET Y LAPTOP */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    .contenido-brochure {
+        flex: 1;
+        max-width: 750px;
+        margin: 1.5rem auto;
+    }
+    .cavatec_logo { width: 15%; }
+}
+
+/* DESKTOP */
+@media screen and (min-width: 1200px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    .contenido-brochure {
+        flex: 1;
+        max-width: 1100px;
+        margin: 2rem auto;
+    }
+    .pagina { padding: 3rem; }
+    .cavatec_logo { width: 12%; }
+}
+
+/* ==================================== */
+/* 7. FOOTER                            */
+/* ==================================== */
+
+footer {
+    background-color: var(--color-secondary);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+    width: 100%;
+}
+
+footer p { margin: 0; }
