@@ -1,4 +1,4 @@
-import { CONFIG, SERVICES_DATA } from '../config.template.js';
+const { CONFIG, SERVICES_DATA } = window.APP_DATA;
 
 const sectionContainer = document.querySelector('#seccion-contacto');
 const contactButton = document.querySelector('#contact-btn');
@@ -28,6 +28,11 @@ contactButton.addEventListener('click', showContactData);
 // For handling services iteration....
 const showSection = () => {    
     const service = SERVICES_DATA[currentIndex]
+
+    if (!service) {
+        servicesSection.innerHTML = `<h2>Próximamente</h2><p>Más información pronto.</p>`;
+        return;
+    }
 
     servicesSection.innerHTML = 
                                 `
